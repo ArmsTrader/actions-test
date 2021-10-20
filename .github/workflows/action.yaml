@@ -1,0 +1,11 @@
+name: Change Asana task sections
+on:
+  pull_request:
+    types: [ ready_for_review, review_requested, review_request_removed ]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ toJSON(github) }}"
