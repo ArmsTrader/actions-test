@@ -1,7 +1,7 @@
 name: Change Asana task sections
 on:
   pull_request:
-    types: [ push, labeled ]
+    types: [ ready_for_review, review_requested, review_request_removed ]
   workflow_dispatch:
 
 jobs:
@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ toJSON(github) }}"
-      - run: echo "${{ github.event.pull_request.body }}"
+      - run: echo "${{ github.event }}"
